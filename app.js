@@ -7,7 +7,14 @@ const aiRoutes = require('./routes/aiRoutes');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://password-k.vercel.app' // your Vercel URL
+  ],
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(limiter);
 
